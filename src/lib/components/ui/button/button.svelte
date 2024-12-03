@@ -2,29 +2,32 @@
 	import { cva, type VariantProps } from 'class-variance-authority';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
-	const buttonVariants = cva('default-style', {
-		variants: {
-			variant: {
-				default: 'variant-default',
-				outlined: 'variant-outlined'
+	const buttonVariants = cva(
+		'inline-flex justify-center text-nowrap items-center cursor-pointer transition-color duration-150 disabled:bg-opacity-50',
+		{
+			variants: {
+				variant: {
+					default: 'bg-sun ring ring-sun hover:bg-sun/80',
+					outlined: 'bg-sun/10 ring ring-sun/40 hover:bg-sun/20 hover:ring-sun/70'
+				},
+				size: {
+					default: 'h-10 py-5 px-4',
+					sm: 'h-8 py-4 px-2 text-sm',
+					lg: 'h-12 py-5 px-8'
+				},
+				rounded: {
+					sm: 'rounded-sm',
+					md: 'rounded-md',
+					lg: 'rounded-lg'
+				}
 			},
-			size: {
-				default: 'size-default',
-				sm: 'size-sm',
-				lg: 'size-lg'
-			},
-			rounded: {
-				sm: 'rounded-sm',
-				md: 'rounded-md',
-				lg: 'rounded-lg'
-			}
-		},
 
-		defaultVariants: {
-			variant: 'default',
-			size: 'default'
+			defaultVariants: {
+				variant: 'default',
+				size: 'default'
+			}
 		}
-	});
+	);
 	export type ButtonVariant = VariantProps<typeof buttonVariants>['variant'];
 	export type ButtonSize = VariantProps<typeof buttonVariants>['size'];
 	export type ButtonRounded = VariantProps<typeof buttonVariants>['rounded'];
@@ -37,6 +40,7 @@
 </script>
 
 <script lang="ts">
+	import { cn } from '$lib/utils';
 	let {
 		class: className,
 		type = 'button',
@@ -48,56 +52,6 @@
 	}: ButtonProps = $props();
 </script>
 
-<button class={buttonVariants({ variant, size, rounded, className })} {...rest}
+<button class={cn(buttonVariants({ variant, size, rounded, className }))} {...rest}
 	>{@render children?.()}</button
 >
-
-<style>
-	.default-style {
-		transition-duration: 200ms;
-		cursor: pointer;
-	}
-	.variant-default {
-		background-color: hsl(var(--orange), 0.7);
-		color: hsl(var(--primary-fg));
-		border: 1px solid hsl(var(--orange));
-		box-shadow: 0 0 8px hsl(var(--orange), 0.2);
-	}
-	.variant-default:hover {
-		background-color: hsl(var(--orange), 0.9);
-		box-shadow: 0 0 8px hsl(var(--orange), 0.4);
-	}
-	.variant-outlined {
-		background-color: hsl(var(--orange), 0.1);
-		color: hsl(var(--primary-fg));
-		border: 1px solid hsl(var(--orange), 0.5);
-		box-shadow: 0 0 8px hsl(var(--orange), 0.4);
-	}
-	.variant-outlined:hover {
-		background-color: hsl(var(--orange), 0.2);
-		border: 1px solid hsl(var(--orange), 0.8);
-		box-shadow: 0 0 8px hsl(var(--orange), 0.8);
-	}
-	.size-default {
-		height: 3rem;
-		padding: 0.2rem 1.2rem;
-	}
-	.size-sm {
-		height: 2rem;
-		padding: 0.2rem 1.2rem;
-		font-size: 1.4rem;
-	}
-	.size-lg {
-		height: 4rem;
-		padding: 0.4rem 2rem;
-	}
-	.rounded-sm {
-		border-radius: 3px;
-	}
-	.rounded-md {
-		border-radius: 5px;
-	}
-	.rounded-lg {
-		border-radius: 7px;
-	}
-</style>
