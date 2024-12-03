@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import '../app.css';
+</script>
+
+<svelte:head>
+	<title>Manvel Muradyan's Portfolio</title>
+	<meta
+		name="description"
+		content="Explore the portfolio of Manvel Muradyan a professional web developer specializing in creating modern, responsive, and user-friendly websites. Discover projects, skills, and services to elevate your digital presence."
+	/>
+</svelte:head>
