@@ -7,14 +7,14 @@
 }
 
 :root {
-	--primary: hsl(225, 40%, 2%);
-	--primary-fg: hsl(225, 40%, 90%);
-	--orange: hsl(9, 75%, 47%);
+	--primary: 225, 40%, 2%;
+	--primary-fg: 225, 40%, 90%;
+	--orange: 9, 75%, 47%;
 }
 
 html * {
-	background-color: var(--primary);
-	color: var(--primary-fg);
+	background-color: hsl(var(--primary));
+	color: hsl(var(--primary-fg));
 	font-size: 1.8rem;
 }
 h1,
@@ -44,9 +44,14 @@ h6 {
 	font-size: 2rem;
 }
 a {
-	color: var(--orange);
+	color: hsl(var(--orange));
 	text-decoration: none;
 }
 a:hover {
-	color: var(--primary-fg);
+	color: hsl(var(--primary-fg));
+}
+
+button {
+	all: unset;
+	display: inline-block;
 }
