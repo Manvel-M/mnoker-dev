@@ -16,7 +16,3 @@
 html {
 	@apply bg-primary text-primary-fg font-family-inner;
 }
-
-h1 {
-	@apply text-4xl md:text-5xl font-bold tracking-wide;
-}

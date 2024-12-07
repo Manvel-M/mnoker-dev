@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Hero } from '$lib/components/page-sections';
+	import { Hero, Work } from '$lib/components/page-sections';
 	import '../app.css';
 </script>
 
@@ -12,4 +12,5 @@
 </svelte:head>
 <main>
 	<Hero />
+	<Work />
 </main>

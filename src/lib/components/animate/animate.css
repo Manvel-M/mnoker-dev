@@ -1,0 +1,35 @@
+.enter-animation {
+	opacity: 1;
+	transition-duration: var(--duration);
+	transition-delay: var(--delay);
+	transform: scale(1) translateX(0) translateY(0);
+}
+
+.exit-animation {
+	opacity: 0;
+	transition-duration: var(--duration);
+	pointer-events: none;
+}
+
+.enter-scale {
+	transform: scale(1);
+}
+
+.exit-left {
+	transform: translateX(-100%);
+}
+.exit-right {
+	transform: translateX(100%);
+}
+.exit-top {
+	transform: translateY(-100%);
+}
+.exit-bottom {
+	transform: translateY(100%);
+}
+.exit-fade {
+	opacity: 0;
+}
+.exit-scale {
+	transform: scale(0);
+}

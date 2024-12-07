@@ -7,8 +7,8 @@
 		{
 			variants: {
 				variant: {
-					default: 'bg-sun ring ring-sun hover:bg-sun/80',
-					outlined: 'bg-sun/10 ring ring-sun/40 hover:bg-sun/20 hover:ring-sun/70'
+					default: 'bg-primary text-primary-fg ring ring-primary hover:bg-primary/80',
+					outlined: 'bg-primary/10 ring ring-primary/40 hover:bg-primary/20 hover:ring-primary/70'
 				},
 				size: {
 					default: 'h-10 py-5 px-4',
