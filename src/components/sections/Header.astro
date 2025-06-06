@@ -1,0 +1,25 @@
+---
+import Linkedin from '@/assets/icons/linkedin.svg'
+import Ig from '@/assets/icons/ig.svg'
+import { Button } from '../ui'
+---
+
+<header class="px-5 py-2.5">
+  <div class="flex justify-between items-center">
+    <a href="/"><div class="bg-primary text-primary-foreground w-12 h-12 flex items-center justify-center rounded-lg text-lg font-semibold">MM</div></a>
+    <nav class="space-x-2 font-semibold">
+      <a href="#about">ABOUT</a>
+      <a href="#works">WORKS</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div>
+      <a href="" target="_blank">
+        <Button variant='ghost' size='icon'><Linkedin class="size-6" /></Button>
+      </a>
+      <a href="" target="_blank">
+        <Button variant='ghost' size='icon'><Ig class="size-6" /></Button>
+      </a>
+    </div>
+  </div>
+</header>

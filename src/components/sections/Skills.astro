@@ -1,0 +1,15 @@
+---
+import {designTools, webTools, frameWorkTools, libraryTools} from '@/utils/skills'
+import { Section } from '@/layouts'
+import SkillsLayout from '@/components/SkillsList.astro'
+---
+
+<Section id="skills" title='SKILLS & TOOLS'>
+  <div class="grid grid-cols-2 sm:grid-cols-4 space-y-10 sm:justify-items-center">
+    <SkillsLayout title="Design" skills={designTools} />
+    <SkillsLayout title="Web"  skills={webTools} />
+    <SkillsLayout title="Framework" skills={frameWorkTools} />
+    <SkillsLayout title="Library" skills={libraryTools} />
+  </div>
+  <p class="text-center">Many More</p>
+</Section>

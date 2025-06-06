@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+
+type Props = {
+  title: string;
+  skills: {
+    name: string;
+    img: ((_props: astroHTML.JSX.SVGAttributes) => any) & ImageMetadata;
+}[]
+}
+
+const {skills, title} = Astro.props;
+---
+
+<div class="space-y-2 col-span-1">
+  <h3>{title}</h3>
+  <ul class="space-y-2">
+  {skills.map((tool) => (
+    <li class="flex gap-2 items-center">
+      <span  class="rounded-lg bg-primary hover:bg-indigo-700/90 w-12 h-12 p-1.5 inline-flex items-center justify-center transition-colors duration-200 hover:scale-105 cursor-crosshair">
+        <Image src={tool.img} alt={tool.name} width="20" />
+      </span>
+      <span>{tool.name}</span>
+    </li>
+  ))}
+  </ul>
+</div>
