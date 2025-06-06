@@ -1,1 +1,78 @@
 @import "tailwindcss";
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.65rem;
+  --background: oklch(0.8783 0.022 249.97);
+  --foreground: oklch(0.273 0.034 253.18);
+  --secondary: oklch(0.9139 0.0231 249.97);
+  --secondary-foreground: oklch(0.3205 0.034 253.18);
+  --primary: oklch(0.4866 0.2514 277.023);
+  --primary-foreground: oklch(0.9117 0.0457 274.54);
+  --muted: oklch(0.9139 0.0231 249.97);
+  --muted-foreground: oklch(0.5401 0.034 253.18);
+  --input: oklch(0.816 0.0274 249.97);
+  --input-foreground: oklch(0.3591 0.0274 249.97);
+  --border: oklch(0.8368 0.0274 249.97);
+  --ring: oklch(0.4866 0.2514 277.023);
+  --destructive: oklch(0.5015 0.185 28.59);
+}
+
+.dark {
+  --background: oklch(0.1424 0.034 256.38);
+  --foreground: oklch(0.8427 0.0296 252.11);
+  --secondary: oklch(0.2344 0.0362 256.38);
+  --secondary-foreground: oklch(0.8427 0.0121 252.11);
+  --primary: oklch(0.451 0.2514 277.023);
+  --primary-foreground: oklch(0.9117 0.0457 274.54);
+  --muted: oklch(0.2344 0.0362 256.38);
+  --muted-foreground: oklch(0.6528 0.0121 252.11);
+  --input: oklch(0.2107 0.0395 257.45);
+  --input-foreground: oklch(0.8071 0.0143 257.45);
+  --border: oklch(0.2611 0.0395 257.45);
+  --ring: oklch(0.451 0.2514 277.023);
+  --destructive: oklch(0.5223 0.1866 28.59);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1 {
+    @apply text-3xl font-black tracking-wider;
+  }
+  h2 {
+    @apply text-2xl font-bold tracking-wider;
+  }
+  h3 {
+    @apply text-xl font-bold tracking-wider;
+  }
+}
