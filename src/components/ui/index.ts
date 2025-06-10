@@ -1,5 +1,5 @@
-import Button from "./Button.astro";
-import Input from "./Input.astro";
-import Textarea from "./Textarea.astro";
+import Button from "./Button";
+import Input from "./Input";
+import Textarea from "./Textarea";
 
 export { Button, Input, Textarea };
