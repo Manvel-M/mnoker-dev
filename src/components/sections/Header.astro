@@ -1,22 +1,11 @@
 ---
-import Linkedin from "@/assets/icons/linkedin.svg";
-import Ig from "@/assets/icons/ig.svg";
-import Gh from "@/assets/icons/gh.svg";
+import SocialMedia from "../SocialMedia.astro";
 
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
-];
-const smLinks = [
-  {
-    name: "Linkedin",
-    href: "https://linkedin.com/in/manvel-muradyan-79174633b",
-    img: Linkedin,
-  },
-  { name: "Instagram", href: "https://instagram.com/mno_ker", img: Ig },
-  { name: "Github", href: "https://github.com/manveldev", img: Gh },
 ];
 ---
 
@@ -49,15 +38,7 @@ const smLinks = [
     </nav>
 
     <!-- Social Icons -->
-    <div class="flex items-center gap-4">
-      {
-        smLinks.map((link) => (
-          <a href={link.href}>
-            <link.img class="w-5 h-5 fill-current hover:text-white hover:-translate-y-0.5 transition" />
-          </a>
-        ))
-      }
-    </div>
+    <SocialMedia />
   </div>
 </header>
 

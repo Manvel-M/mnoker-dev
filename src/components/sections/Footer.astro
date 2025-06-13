@@ -1,15 +1,12 @@
 ---
-import Linkedin from '@/assets/icons/linkedin.svg'
-import Ig from '@/assets/icons/ig.svg'
+import SocialMedia from "../SocialMedia.astro";
 ---
+
 <footer class="mb-5">
-  <div class="flex justify-center space-x-2 mb-5">
-    <a class="hover:scale-110 transition-transform duration-200" href="/" target="_blank" aria-label="Linkedin">
-      <Linkedin class="size-6" />
-    </a>
-    <a class="hover:scale-110 transition-transform duration-200" href="/" target="_blank" aria-label="Instagram">
-      <Ig class="size-6" />
-    </a>
+  <div class="flex justify-center mb-5">
+    <SocialMedia />
   </div>
-  <p class="text-center">&copy; {new Date().getFullYear()} mnoker.dev. All rights reserved.</p>
+  <p class="text-center">
+    &copy; {new Date().getFullYear()} mnoker.dev. All rights reserved.
+  </p>
 </footer>
