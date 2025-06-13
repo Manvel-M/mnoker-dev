@@ -1,20 +1,33 @@
 ---
 import { Image } from "astro:assets";
-import {recentWorks} from '@/utils/works'
+import { recentWorks } from "@/utils/works";
 import { Section } from "@/layouts";
 ---
 
-<Section id="works" title="MY RECENT WORK">
+<Section id="projects" title="MY RECENT WORK">
   <ul>
-    {recentWorks.map((work, idx) => (
-      <li class="hover:bg-accent/30 transition-all duration-200 p-4 rounded-lg grid md:grid-cols-8 gap-2">
-        <Image loading={idx >= 2 ? 'lazy' : 'eager'} src={work.img} alt={work.name} height={150} width={225} class:list="rounded-lg md:col-span-2" />
+    {
+      recentWorks.map((work, idx) => (
+        <li class="hover:bg-accent/30 transition-all duration-200 p-4 rounded-lg grid md:grid-cols-8 gap-2">
+          <Image
+            loading={idx >= 2 ? "lazy" : "eager"}
+            src={work.img}
+            alt={work.name}
+            height={150}
+            width={225}
+            class:list="rounded-lg md:col-span-2"
+          />
 
-        <div class="md:col-span-6">
-          <h3><a target="_blank" href={work.link} class="hover:text-primary"><span>{work.name}</span></a></h3>
-          <p class="tracking-wider text-sm">{work.desc}</p>
-        </div>
-      </li>
-    ))}
+          <div class="md:col-span-6">
+            <h3>
+              <a target="_blank" href={work.link} class="hover:text-primary">
+                <span>{work.name}</span>
+              </a>
+            </h3>
+            <p class="tracking-wider text-sm">{work.desc}</p>
+          </div>
+        </li>
+      ))
+    }
   </ul>
 </Section>
