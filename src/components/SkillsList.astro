@@ -16,7 +16,7 @@ const { skills, title } = Astro.props;
     {
       skills.map((tool) => (
         <li class="flex gap-4 items-center">
-          <span class="rounded-lg bg-primary size-10 inline-flex items-center justify-center transition hover:-translate-0.5 cursor-crosshair">
+          <span class="rounded-lg bg-primary size-10 inline-flex items-center justify-center transition hover:-translate-y-0.5 cursor-crosshair">
             <tool.img class="w-5 h-5" aria-label={tool.name} />
           </span>
           <span>{tool.name}</span>
