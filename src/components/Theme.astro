@@ -1,0 +1,133 @@
+---
+import Sun from "@/assets/icons/sun.svg";
+import Moon from "@/assets/icons/moon.svg";
+---
+
+<button
+  id="theme-toggle"
+  class="relative w-14 h-8 rounded-full bg-background transition-colors duration-500 shadow-inner cursor-grabbing"
+  aria-label="Toggle Theme"
+>
+  <div
+    class="thumb absolute top-[2px] left-[2px] h-7 w-7 bg-secondary rounded-full flex items-center justify-center transform transition-all duration-500 ease-out will-change-transform"
+  >
+    <Sun
+      id="sun"
+      class="sun-icon w-5 h-5 fill-yellow-500 transition-transform duration-500"
+    />
+    <Moon
+      id="moon"
+      class="moon-icon w-5 h-5 fill-indigo-500 absolute opacity-0 transition-transform duration-500"
+    />
+  </div>
+</button>
+
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const html = document.documentElement;
+    const toggle = document.getElementById("theme-toggle")!;
+    const thumb = document.getElementById("thumb")!;
+    const sun = document.getElementById("sun")!;
+    const moon = document.getElementById("moon")!;
+
+    const applyTheme = (theme: string) => {
+      const isDark = theme === "dark";
+      html.classList.toggle("dark", isDark);
+      localStorage.setItem("theme", theme);
+
+      // Move thumb
+      thumb.style.transform = isDark
+        ? "translateX(24px) rotate(-360deg)"
+        : "translateX(0px) rotate(360deg)";
+
+      // Icon swap
+      sun.style.opacity = isDark ? 0 : 1;
+      moon.style.opacity = isDark ? 1 : 0;
+      sun.style.transform = isDark ? "rotate(90deg)" : "rotate(0deg)";
+      moon.style.transform = isDark ? "rotate(0deg)" : "rotate(90deg)";
+    };
+
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const current = saved || (prefersDark ? "dark" : "light");
+    applyTheme(current);
+
+    toggle.addEventListener("click", () => {
+      const isCurrentlyDark = html.classList.contains("dark");
+      applyTheme(isCurrentlyDark ? "light" : "dark");
+    });
+  });
+
+</script> -->
+<style>
+  html.dark {
+    --sun-icon-transform: rotate(0deg);
+    --moon-icon-transform: rotate(-90deg);
+    --sun-icon-opacity: 1;
+    --moon-icon-opacity: 0;
+    --track-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) inset;
+    --thumb-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --thumb-translate: 0px;
+    --thumb-rotate: 0deg;
+  }
+  html:not(.dark) {
+    --sun-icon-transform: rotate(90deg);
+    --moon-icon-transform: rotate(0deg);
+    --sun-icon-opacity: 0;
+    --moon-icon-opacity: 1;
+    --track-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) inset;
+    --thumb-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --thumb-translate: 24px;
+    --thumb-rotate: 360deg;
+  }
+  .theme-toggle {
+    box-shadow: var(--track-shadow);
+  }
+  .thumb {
+    box-shadow: var(--thumb-shadow);
+    transform: translateX(var(--thumb-translate)) rotateZ(var(--thumb-rotate));
+    transition:
+      transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+      background-color 0.5s ease,
+      box-shadow 0.5s ease;
+    overflow: hidden;
+  }
+  .sun-icon {
+    opacity: var(--sun-icon-opacity);
+    transform: var(--sun-icon-transform);
+  }
+  .moon-icon {
+    opacity: var(--moon-icon-opacity);
+    transform: var(--moon-icon-transform);
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("theme-toggle");
+    const htmlElement = document.documentElement;
+
+    const applyTheme = (theme: string) => {
+      if (theme === "dark") {
+        htmlElement.classList.add("dark");
+      } else {
+        htmlElement.classList.remove("dark");
+      }
+      localStorage.setItem("theme", theme);
+    };
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      applyTheme(savedTheme);
+    }
+
+    themeToggle?.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        applyTheme("light");
+      } else {
+        applyTheme("dark");
+      }
+    });
+  });
+</script>

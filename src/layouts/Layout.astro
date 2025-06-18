@@ -12,17 +12,21 @@ import "@/styles/global.css";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="generator" content={Astro.generator} />
     <title>Mnoker Dev</title>
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      }
+    </script>
   </head>
-  <body class="">
+  <body>
     <slot />
   </body>
 </html>
-
-<script>
-  document.documentElement.classList.toggle(
-    "dark",
-    localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark").matches),
-  );
-</script>

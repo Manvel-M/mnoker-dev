@@ -14,12 +14,10 @@ const smLinks = [
 ];
 ---
 
-<div class="flex items-center gap-4">
-  {
-    smLinks.map((link) => (
-      <a href={link.href}>
-        <link.img class="w-5 h-5 fill-current hover:text-white hover:-translate-y-0.5 transition" />
-      </a>
-    ))
-  }
-</div>
+{
+  smLinks.map((link) => (
+    <a href={link.href}>
+      <link.img class="w-5 h-5 fill-current hover:text-white hover:-translate-y-0.5 transition" />
+    </a>
+  ))
+}

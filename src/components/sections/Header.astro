@@ -1,5 +1,6 @@
 ---
 import SocialMedia from "../SocialMedia.astro";
+import Theme from "../Theme.astro";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -38,7 +39,10 @@ const navLinks = [
     </nav>
 
     <!-- Social Icons -->
-    <SocialMedia />
+    <div class="flex items-center gap-4">
+      <SocialMedia />
+      <Theme />
+    </div>
   </div>
 </header>
 
