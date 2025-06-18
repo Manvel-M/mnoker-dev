@@ -11,25 +11,25 @@ const navLinks = [
 ---
 
 <header
-  class="header transition-transform duration-300 fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 backdrop-blur-md bg-white/5 border-b border-white/10"
+  class="header transition-all duration-300 fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 backdrop-blur-md bg-secondary border-b border"
 >
   <div class="flex items-center justify-between max-w-screen-xl mx-auto">
     <!-- Logo -->
     <a
       href="#"
-      class="text-white text-2xl font-bold tracking-tight bg-gradient-to-br from-indigo-400 to-purple-500 bg-clip-text"
+      class="text-2xl font-bold tracking-tight hover:text-gradient-to-br hover:bg-indigo-400 hover:to-purple-500 bg-clip-text"
     >
       MnoDev
     </a>
 
     <!-- Nav Links -->
     <nav
-      class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300"
+      class="hidden md:flex items-center gap-8 text-sm font-medium text-secondary-foreground"
     >
       {
         navLinks.map((link) => (
           <a
-            class="relative transition-all duration-300 hover:text-white hover:-translate-y-0.5  after:absolute after:content-[''] after:-bottom-1.5 after:right-0 after:left-0 after:bg-linear-to-r/oklch after:from-indigo-500 after:to-purple-500 after:w-0 after:h-[2px] hover:after:w-full after:transition-all after:duration-300"
+            class="relative transition-all duration-300 hover:text-secondary-foreground/80 hover:-translate-y-0.5  after:absolute after:content-[''] after:-bottom-1.5 after:right-0 after:left-0 after:bg-linear-to-r/oklch after:from-indigo-500 after:to-purple-500 after:w-0 after:h-[2px] hover:after:w-full after:transition-all after:duration-300"
             href={link.href}
           >
             {link.name}
@@ -48,19 +48,24 @@ const navLinks = [
 
 <style>
   .hide {
-    transform: translateY(-100px);
+    transform: translateY(-66px);
   }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header")!;
+    let lastScrollY = window.scrollY;
 
     window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 100) {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
         header.classList.add("hide");
-      } else header.classList.remove("hide");
+      } else {
+        header.classList.remove("hide");
+      }
+      lastScrollY = currentScrollY;
     });
   });
 </script>
