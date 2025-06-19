@@ -1,5 +1,13 @@
+---
+import { Button } from "../ui";
+import Lightning from "@/assets/icons/lightning.svg";
+import Palette from "@/assets/icons/palette.svg";
+import Responsive from "@/assets/icons/responsive.svg";
+import ArrowDown from "@/assets/icons/arrow-down.svg";
+---
+
 <section
-  class="relative h-screen flex items-center justify-center bg-linear-to-br/oklch from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] overflow-hidden"
+  class="relative h-screen flex items-center justify-center bg-linear-to-br/oklch from-gray-50 via-slate-200 to-purple-200 dark:from-gray-950 dark:via-slate-900 dark:to-purple-950 overflow-hidden transition-colors duration-300"
 >
   <canvas id="hero-canvas" class="absolute inset-0 w-full h-full opacity-30 z-0"
   ></canvas>
@@ -21,28 +29,29 @@
   </div>
 
   <!-- Main Content -->
-  <div class="relative z-10 text-center max-w-3xl px-8 animate-fade-up">
-    <div
-      class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-sm text-gray-400 rounded-full px-4 py-2 backdrop-blur-md mb-8 animate-slide-down"
+  <div class="z-10 text-center max-w-3xl px-8 animate-fade-up">
+    <Button
+      className="animate-slide-down"
+      rounded="lg"
+      size="sm"
+      variant="ghost"
+      ><span class="size-2 bg-green-500 rounded-full animate-pulse"
+      ></span>Available for freelance</Button
     >
-      <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-      Available for freelance
-    </div>
-
     <h1
-      class="text-5xl md:text-7xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400 mb-6 animate-slide-up [animation-delay:400ms]"
+      class="text-5xl md:text-7xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-br from-foreground to-secondary-foreground mb-6 animate-slide-up [animation-delay:400ms]"
     >
       Creative Developer
     </h1>
 
     <h2
-      class="text-2xl md:text-3xl font-semibold text-indigo-400 mb-4 animate-slide-up [animation-delay:600ms]"
+      class="text-2xl md:text-3xl font-semibold text-primary mb-4 animate-slide-up [animation-delay:600ms]"
     >
       Web Developer & Designer
     </h2>
 
     <p
-      class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto mb-12 animate-slide-up [animation-delay:800ms]"
+      class="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto mb-12 animate-slide-up [animation-delay:800ms]"
     >
       I craft digital experiences that blend beautiful design with robust
       functionality. From concept to code, I bring ideas to life with modern
@@ -53,66 +62,58 @@
     <div
       class="flex flex-wrap justify-center gap-6 mb-12 animate-slide-up [animation-delay:1000ms]"
     >
-      <div
-        class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-6 py-4 backdrop-blur-md hover:bg-white/10 hover:border-indigo-400 hover:-translate-y-1 transition-all duration-300 cursor-crosshair"
-      >
+      <div class="flex items-center gap-3">
         <div
-          class="w-6 h-6 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
+          class="size-7 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
         >
-          ⚡
-        </div>
-        <span>Frontend Development</span>
+          <Lightning class="size-5 fill-yellow-400 stroke-black" />
+        </div><span>Frontend Development</span>
       </div>
-      <div
-        class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-6 py-4 backdrop-blur-md hover:bg-white/10 hover:border-indigo-400 hover:-translate-y-1 transition-all duration-300 cursor-crosshair"
-      >
+      <div class="flex items-center gap-3">
         <div
-          class="w-6 h-6 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
+          class="size-7 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
         >
-          🎨
-        </div>
-        <span>UI/UX Design</span>
+          <Palette class="size-5 fill-yellow-400 stroke-black" />
+        </div><span>UI/UX Design</span>
       </div>
-      <div
-        class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-6 py-4 backdrop-blur-md hover:bg-white/10 hover:border-indigo-400 hover:-translate-y-1 transition-all duration-300 cursor-crosshair"
-      >
+      <div class="flex items-center gap-3">
         <div
-          class="w-6 h-6 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
+          class="size-7 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
         >
-          📱
-        </div>
-        <span>Responsive Design</span>
+          <Responsive class="size-5 fill-yellow-400 stroke-black" />
+        </div><span>Responsive Design</span>
       </div>
     </div>
 
-    <!-- CTAs -->
     <div
       class="flex flex-wrap justify-center gap-4 animate-slide-up [animation-delay:1200ms]"
     >
-      <a
+      <Button
+        link
         href="#projects"
-        class="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        className="bg-linear-to-br/oklch from-primary to-purple-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        size="lg"
+        rounded="lg"
+        variant="primary">View My Work<span>→</span></Button
       >
-        View My Work <span>→</span>
-      </a>
-      <a
-        href="#contact"
-        class="inline-flex items-center gap-2 px-6 py-3 text-white border border-white/20 bg-white/10 backdrop-blur-md rounded-xl hover:bg-white/20 hover:-translate-y-1 transition-all duration-300"
+      <Button
+        className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        size="lg"
+        rounded="lg"
+        variant="ghost">Get In Touch <span>✉</span></Button
       >
-        Get In Touch <span>✉</span>
-      </a>
     </div>
   </div>
 
   <!-- Scroll Indicator -->
   <div
-    class="absolute bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400 flex flex-col items-center gap-2 animate-fade-in [animation-delay:1500ms]"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 text-sm text-muted-foreground flex flex-col items-center gap-2 animate-fade-in [animation-delay:1500ms]"
   >
     <span>Scroll to explore</span>
     <div
-      class="w-6 h-6 border-2 border-indigo-500 rounded-full flex items-center justify-center animate-bounce"
+      class="w-6 h-6 border-2 border-ring rounded-full flex items-center justify-center animate-bounce"
     >
-      ↓
+      <ArrowDown class="" />
     </div>
   </div>
 </section>
