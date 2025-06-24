@@ -4,9 +4,28 @@ import Lightning from "@/assets/icons/lightning.svg";
 import Palette from "@/assets/icons/palette.svg";
 import Responsive from "@/assets/icons/responsive.svg";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
+
+const skills = [
+  {
+    name: "Frontend Development",
+    icon: Lightning,
+    colors: "fill-yellow-400 stroke-black",
+  },
+  {
+    name: "UI/UX Design",
+    icon: Palette,
+    colors: "fill-yellow-400 stroke-black",
+  },
+  {
+    name: "Responsive Design",
+    icon: Responsive,
+    colors: "fill-yellow-400 stroke-black",
+  },
+];
 ---
 
 <section
+  id="hero"
   class="relative h-screen flex items-center justify-center bg-linear-to-br/oklch from-gray-50 via-slate-200 to-purple-200 dark:from-gray-950 dark:via-slate-900 dark:to-purple-950 overflow-hidden transition-colors duration-300"
 >
   <canvas id="hero-canvas" class="absolute inset-0 w-full h-full opacity-30 z-0"
@@ -62,27 +81,16 @@ import ArrowDown from "@/assets/icons/arrow-down.svg";
     <div
       class="flex flex-wrap justify-center gap-6 mb-12 animate-slide-up [animation-delay:1000ms]"
     >
-      <div class="flex items-center gap-3">
-        <div
-          class="size-7 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
-        >
-          <Lightning class="size-5 fill-yellow-400 stroke-black" />
-        </div><span>Frontend Development</span>
-      </div>
-      <div class="flex items-center gap-3">
-        <div
-          class="size-7 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
-        >
-          <Palette class="size-5 fill-yellow-400 stroke-black" />
-        </div><span>UI/UX Design</span>
-      </div>
-      <div class="flex items-center gap-3">
-        <div
-          class="size-7 text-xs font-bold flex items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-500"
-        >
-          <Responsive class="size-5 fill-yellow-400 stroke-black" />
-        </div><span>Responsive Design</span>
-      </div>
+      {
+        skills.map((skill) => (
+          <div class="flex items-center gap-3">
+            <div class="size-7 text-xs font-bold flex items-center justify-center  bg-gradient-to-br rounded from-indigo-500 to-purple-500">
+              <skill.icon class="size-5 fill-yellow-400 stroke-black" />
+            </div>
+            <span>{skill.name}</span>
+          </div>
+        ))
+      }
     </div>
 
     <div
@@ -97,6 +105,8 @@ import ArrowDown from "@/assets/icons/arrow-down.svg";
         variant="primary">View My Work<span>→</span></Button
       >
       <Button
+        link
+        href="#contact"
         className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
         size="lg"
         rounded="lg"

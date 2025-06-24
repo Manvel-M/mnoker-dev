@@ -38,36 +38,34 @@ export default function ContactForm() {
   };
 
   return (
-    <div>
-      <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+    <div className="w-full">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-5">
-          <div className="flex flex-wrap md:flex-nowrap gap-5">
-            <div className="w-full">
-              <Input
-                type="text"
-                placeholder="Name"
-                {...register("name")}
-                aria-invalid={!!errors.name}
-              />
-              {errors.name && (
-                <span className="text-destructive text-sm">
-                  {errors.name.message}
-                </span>
-              )}
-            </div>
-            <div className="w-full">
-              <Input
-                type="email"
-                placeholder="Email"
-                {...register("email")}
-                aria-invalid={!!errors.email}
-              />
-              {errors.email && (
-                <span className="text-destructive text-sm">
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
+          <div className="w-full">
+            <Input
+              type="text"
+              placeholder="Name"
+              {...register("name")}
+              aria-invalid={!!errors.name}
+            />
+            {errors.name && (
+              <span className="text-destructive text-sm">
+                {errors.name.message}
+              </span>
+            )}
+          </div>
+          <div className="w-full">
+            <Input
+              type="email"
+              placeholder="Email"
+              {...register("email")}
+              aria-invalid={!!errors.email}
+            />
+            {errors.email && (
+              <span className="text-destructive text-sm">
+                {errors.email.message}
+              </span>
+            )}
           </div>
           <div className="w-full">
             <Textarea
@@ -83,8 +81,8 @@ export default function ContactForm() {
           </div>
           <div className="flex justify-center">
             <Button
-              type="submit"
-              variant="primary"
+              type={"submit"}
+              variant={isSubmitSuccessful ? "success" : "primary"}
               disabled={isSubmitting || isSubmitSuccessful}
             >
               {isSubmitting

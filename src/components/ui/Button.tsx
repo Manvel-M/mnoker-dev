@@ -6,7 +6,13 @@ import {
 } from "react";
 import clsx from "clsx";
 
-type Variant = "default" | "secondary" | "primary" | "destructive" | "ghost";
+type Variant =
+  | "default"
+  | "secondary"
+  | "primary"
+  | "error"
+  | "success"
+  | "ghost";
 type Size = "default" | "sm" | "lg" | "icon";
 type Rounded = "default" | "sm" | "lg" | "none";
 
@@ -48,8 +54,8 @@ function ButtonFn(
     default: "bg-foreground text-background hover:bg-foreground/80",
     secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
     primary: "bg-primary text-primary-foreground hover:bg-primary/80",
-    destructive:
-      "bg-destructive text-secondary dark:text-secondary-foreground hover:bg-destructive/80",
+    error: "bg-error text-error-foreground hover:bg-error/80",
+    success: "bg-success text-success-foreground hover:bg-success/80",
     ghost: "bg-foreground/10",
   };
 

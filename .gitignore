@@ -23,3 +23,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .prettierrc.mjs
+/src/styles/test.css
+/src/layouts/Test.astro
+/src/pages/test-buttons.astro
+/src/pages/test-colors.astro

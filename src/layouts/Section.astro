@@ -1,13 +1,23 @@
 ---
-type Props =  astroHTML.JSX.HTMLAttributes & {
+type Props = astroHTML.JSX.HTMLAttributes & {
   title: string;
-  width?: 'max-w-7xl' | 'max-w-6xl' | 'max-w-5xl'
-}
+  subTitle?: string;
+  width?: string;
+};
 
-const { title, width = 'max-w-7xl', class:className, ...props } = Astro.props;
+const { width = "max-w-7xl", title, subTitle, ...props } = Astro.props;
 ---
 
-<section class={`${width} mx-auto my-25 px-5 ${className}`} {...props}>
-  <h2 class="text-center mb-10">{title}</h2>
-  <slot />
+<section {...props}>
+  <div class={`${width} mx-auto py-25 px-5`}>
+    <h2 class={`text-center ${!subTitle && "mb-10"}`}>{title}</h2>
+    {
+      subTitle && (
+        <p class="text-sm text-muted-foreground text-center mb-10">
+          {subTitle}
+        </p>
+      )
+    }
+    <slot />
+  </div>
 </section>

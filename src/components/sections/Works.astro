@@ -5,29 +5,30 @@ import { Section } from "@/layouts";
 ---
 
 <Section id="projects" title="MY RECENT WORK">
-  <ul>
+  <div class="flex flex-col gap-5">
     {
       recentWorks.map((work, idx) => (
-        <li class="hover:bg-accent/30 transition-all duration-200 p-4 rounded-lg grid md:grid-cols-8 gap-2">
+        <a
+          target="_blank"
+          href={work.link}
+          class="hover:bg-surface transition-all duration-200 p-4 rounded-lg grid md:grid-cols-8 gap-2 bg-surface border border-border shadow-lg group"
+        >
           <Image
-            loading={idx >= 2 ? "lazy" : "eager"}
             src={work.img}
             alt={work.name}
             height={150}
             width={225}
-            class:list="rounded-lg md:col-span-2"
+            class="rounded-lg md:col-span-2"
           />
 
           <div class="md:col-span-6">
-            <h3>
-              <a target="_blank" href={work.link} class="hover:text-primary">
-                <span>{work.name}</span>
-              </a>
-            </h3>
-            <p class="tracking-wider text-sm">{work.desc}</p>
+            <h3 class="group-hover:text-primary">{work.name}</h3>
+            <p class="tracking-wider text-sm text-muted-foreground">
+              {work.desc}
+            </p>
           </div>
-        </li>
+        </a>
       ))
     }
-  </ul>
+  </div>
 </Section>

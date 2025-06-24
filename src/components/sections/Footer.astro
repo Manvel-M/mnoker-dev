@@ -2,11 +2,13 @@
 import SocialMedia from "../SocialMedia.astro";
 ---
 
-<footer class="mb-5">
-  <div class="flex justify-center mb-5">
+<footer
+  class="pb-5 bg-surface text-muted-foreground py-5 border-t border-border"
+>
+  <div class="flex justify-center gap-3 mb-5">
     <SocialMedia />
   </div>
-  <p class="text-center">
+  <p class="text-center text-sm">
     &copy; {new Date().getFullYear()} mnoker.dev. All rights reserved.
   </p>
 </footer>

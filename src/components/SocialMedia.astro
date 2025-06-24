@@ -16,8 +16,8 @@ const smLinks = [
 
 {
   smLinks.map((link) => (
-    <a href={link.href}>
-      <link.img class="w-5 h-5 fill-current text-secondary-foreground hover:text-secondary-foreground/90 hover:-translate-y-0.5 transition" />
+    <a target="_blank" href={link.href} aria-label={link.name}>
+      <link.img class="w-5 h-5 fill-current text-muted-foreground hover:text-surface-foreground hover:-translate-y-0.5 transition-all duration-300" />
     </a>
   ))
 }
