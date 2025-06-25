@@ -1,6 +1,7 @@
 ---
 import SocialMedia from "../SocialMedia.astro";
 import Theme from "../Theme.astro";
+import Logo from "@/assets/logo.svg";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -16,11 +17,11 @@ const navLinks = [
 >
   <div class="flex items-center justify-between max-w-screen-xl mx-auto">
     <!-- Logo -->
-    <a
-      href="#hero"
-      class="text-2xl font-bold tracking-tight hover:bg-linear-to-br/oklch hover:bg-indigo-400 hover:to-purple-500 bg-clip-text"
-    >
-      MnoDev
+    <a href="#hero" aria-label="Back to top">
+      <Logo
+        class="max-sm:h-8 h-10 stroke-1 stroke-surface-foreground"
+        aria-label="logo"
+      />
     </a>
 
     <!-- Nav Links -->
@@ -42,7 +43,7 @@ const navLinks = [
     <!-- Social Icons -->
     <div class="flex items-center gap-4">
       <SocialMedia />
-      <Theme />
+      <Theme class="w-10" />
     </div>
   </div>
 </header>
