@@ -5,8 +5,8 @@ import {
   frameWorkTools,
   libraryTools,
 } from "@/utils/skills";
-import { Section } from "@/layouts";
-import SkillsList from "@/components/SkillsList.astro";
+import { Section } from "@/components";
+import { SkillCard } from "@/components";
 ---
 
 <Section
@@ -15,9 +15,9 @@ import SkillsList from "@/components/SkillsList.astro";
   subTitle="This isn’t an exhaustive list, but rather a snapshot of the tools I actively use in my day-to-day work. From design systems to responsive frameworks, these are the technologies that help me build clean, scalable, and user-centered solutions across different kinds of projects."
 >
   <div class="flex gap-4 flex-wrap justify-evenly">
-    <SkillsList title="Design" skills={designTools} />
-    <SkillsList title="Web" skills={webTools} />
-    <SkillsList title="Framework" skills={frameWorkTools} />
-    <SkillsList title="Library" skills={libraryTools} />
+    <SkillCard title="Design" skills={designTools} />
+    <SkillCard title="Web" skills={webTools} />
+    <SkillCard title="Framework" skills={frameWorkTools} />
+    <SkillCard title="Library" skills={libraryTools} />
   </div>
 </Section>
