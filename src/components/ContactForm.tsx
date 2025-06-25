@@ -49,9 +49,7 @@ export default function ContactForm() {
               aria-invalid={!!errors.name}
             />
             {errors.name && (
-              <span className="text-destructive text-sm">
-                {errors.name.message}
-              </span>
+              <span className="text-error text-sm">{errors.name.message}</span>
             )}
           </div>
           <div className="w-full">
@@ -62,9 +60,7 @@ export default function ContactForm() {
               aria-invalid={!!errors.email}
             />
             {errors.email && (
-              <span className="text-destructive text-sm">
-                {errors.email.message}
-              </span>
+              <span className="text-error text-sm">{errors.email.message}</span>
             )}
           </div>
           <div className="w-full">
@@ -74,7 +70,7 @@ export default function ContactForm() {
               aria-invalid={!!errors.email}
             />
             {errors.message && (
-              <span className="text-destructive text-sm">
+              <span className="text-error text-sm">
                 {errors.message.message}
               </span>
             )}
