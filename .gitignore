@@ -16,6 +16,7 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.dev.vars
 
 # macOS-specific files
 .DS_Store
@@ -23,6 +24,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .prettierrc.mjs
+
+# test pages
 /src/styles/test.css
 /src/layouts/Test.astro
 /src/pages/test-buttons.astro

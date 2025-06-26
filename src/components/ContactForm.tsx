@@ -16,12 +16,17 @@ function ContactForm2() {
   } = useForm({ resolver: zodResolver(contactSchema) });
 
   const notifySuccess = () => toast("Message sent successfuly!");
+  const notifyError = () => toast("Something went wrong. Try again later.");
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      await actions.send(data);
-      notifySuccess();
-      reset();
+      const { error } = await actions.send(data);
+      if (error) {
+        notifyError();
+      } else {
+        notifySuccess();
+        reset();
+      }
     } catch (error) {
       console.error("Submission error", error);
     }
