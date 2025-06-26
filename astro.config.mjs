@@ -16,13 +16,13 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
-    // resolve: {
-    //   alias:
-    //     process.env.NODE_ENV === "production"
-    //       ? {
-    //           "react-dom/server": "react-dom/server.edge",
-    //         }
-    //       : undefined,
-    // },
+    resolve: {
+      alias:
+        process.env.NODE_ENV === "production"
+          ? {
+              "react-dom/server": "react-dom/server.edge",
+            }
+          : undefined,
+    },
   },
 });
