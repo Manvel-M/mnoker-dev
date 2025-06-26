@@ -21,48 +21,8 @@ import Moon from "@/assets/icons/moon.svg";
     />
   </div>
 </button>
-
-<!-- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const html = document.documentElement;
-    const toggle = document.getElementById("theme-toggle")!;
-    const thumb = document.getElementById("thumb")!;
-    const sun = document.getElementById("sun")!;
-    const moon = document.getElementById("moon")!;
-
-    const applyTheme = (theme: string) => {
-      const isDark = theme === "dark";
-      html.classList.toggle("dark", isDark);
-      localStorage.setItem("theme", theme);
-
-      // Move thumb
-      thumb.style.transform = isDark
-        ? "translateX(24px) rotate(-360deg)"
-        : "translateX(0px) rotate(360deg)";
-
-      // Icon swap
-      sun.style.opacity = isDark ? 0 : 1;
-      moon.style.opacity = isDark ? 1 : 0;
-      sun.style.transform = isDark ? "rotate(90deg)" : "rotate(0deg)";
-      moon.style.transform = isDark ? "rotate(0deg)" : "rotate(90deg)";
-    };
-
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const current = saved || (prefersDark ? "dark" : "light");
-    applyTheme(current);
-
-    toggle.addEventListener("click", () => {
-      const isCurrentlyDark = html.classList.contains("dark");
-      applyTheme(isCurrentlyDark ? "light" : "dark");
-    });
-  });
-
-</script> -->
 <style>
-  html.dark {
+  html[data-theme="dark"] {
     --sun-icon-transform: rotate(0deg);
     --moon-icon-transform: rotate(-90deg);
     --sun-icon-opacity: 1;
@@ -72,7 +32,8 @@ import Moon from "@/assets/icons/moon.svg";
     --thumb-translate: 0px;
     --thumb-rotate: 0deg;
   }
-  html:not(.dark) {
+
+  html[data-theme="light"] {
     --sun-icon-transform: rotate(90deg);
     --moon-icon-transform: rotate(0deg);
     --sun-icon-opacity: 0;
@@ -105,28 +66,18 @@ import Moon from "@/assets/icons/moon.svg";
 </style>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const themeToggle = document.getElementById("theme-toggle");
     const htmlElement = document.documentElement;
-
-    const applyTheme = (theme: string) => {
-      if (theme === "dark") {
-        htmlElement.classList.add("dark");
-      } else {
-        htmlElement.classList.remove("dark");
-      }
+    const themeToggle = document.getElementById("theme-toggle");
+    const setTheme = (theme: "dark" | "light") => {
+      htmlElement.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
     };
 
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      applyTheme(savedTheme);
-    }
-
     themeToggle?.addEventListener("click", () => {
-      if (htmlElement.classList.contains("dark")) {
-        applyTheme("light");
+      if (htmlElement.getAttribute("data-theme") === "dark") {
+        setTheme("light");
       } else {
-        applyTheme("dark");
+        setTheme("dark");
       }
     });
   });
