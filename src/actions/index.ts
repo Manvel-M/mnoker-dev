@@ -1,8 +1,11 @@
 import { ActionError, defineAction } from "astro:actions";
 import { Resend } from "resend";
 import { contactSchema } from "@/schema/contactSchema";
-import { RESEND_API_KEY } from "astro:env/server";
-import { SENT_FROM_EMAIL, SEND_TO_EMAIL } from "astro:env/client";
+import {
+  RESEND_API_KEY,
+  SENT_FROM_EMAIL,
+  SEND_TO_EMAIL,
+} from "astro:env/server";
 
 const resend = new Resend(RESEND_API_KEY);
 const sendToEmail = SEND_TO_EMAIL;

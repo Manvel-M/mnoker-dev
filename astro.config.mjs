@@ -11,7 +11,6 @@ export default defineConfig({
     platformProxy: {
       enabled: true,
     },
-    imageService: "cloudflare",
   }),
   integrations: [react()],
   vite: {
@@ -28,8 +27,8 @@ export default defineConfig({
   env: {
     schema: {
       RESEND_API_KEY: envField.string({ context: "server", access: "secret" }),
-      SENT_FROM_EMAIL: envField.string({ context: "client", access: "public" }),
-      SEND_TO_EMAIL: envField.string({ context: "client", access: "public" }),
+      SENT_FROM_EMAIL: envField.string({ context: "server", access: "public" }),
+      SEND_TO_EMAIL: envField.string({ context: "server", access: "public" }),
     },
   },
 });
