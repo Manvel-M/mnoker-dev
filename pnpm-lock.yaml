@@ -57,6 +57,9 @@ importers:
       prettier-plugin-astro:
         specifier: ^0.14.1
         version: 0.14.1
+      wrangler:
+        specifier: ^4.21.2
+        version: 4.21.2(@cloudflare/workers-types@4.20250620.0)
 
 packages:
 
