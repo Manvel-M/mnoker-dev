@@ -1,44 +1,34 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { actions } from "astro:actions";
 import { contactSchema, type ContactFormData } from "@/schema/contactSchema";
-import Button from "./ui/Button.tsx";
-import Input from "./ui/Input.tsx";
-import Textarea from "./ui/Textarea.tsx";
 
-export default function ContactForm() {
-  const [status, setStatus] = useState<string | null>(null);
+import { Button, Input, Textarea } from "@/components/ui";
+import { toast, Toaster } from "react-hot-toast";
 
+function ContactForm2() {
   const {
     register,
     handleSubmit,
+    formState: { errors, isSubmitting },
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful, isDirty, isValid },
-  } = useForm({
-    resolver: zodResolver(contactSchema),
-  });
+  } = useForm({ resolver: zodResolver(contactSchema) });
+
+  const notifySuccess = () => toast("Message sent successfuly!");
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (res.ok) {
-        setStatus("Message sent successfully.");
-        reset();
-      } else {
-        setStatus("Failed to send message.");
-      }
-    } catch (err) {
-      setStatus("Error sending message.");
+      await actions.send(data);
+      notifySuccess();
+      reset();
+    } catch (error) {
+      console.error("Submission error", error);
     }
   };
 
   return (
-    <div className="w-full">
+    <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-5">
           <div className="w-full">
@@ -78,18 +68,26 @@ export default function ContactForm() {
           <div className="flex justify-center">
             <Button
               type={"submit"}
-              variant={isSubmitSuccessful ? "success" : "primary"}
-              disabled={isSubmitting || isSubmitSuccessful}
+              variant={isSubmitting ? "secondary" : "primary"}
+              disabled={isSubmitting}
             >
-              {isSubmitting
-                ? "Sending"
-                : isSubmitSuccessful
-                  ? "Message Sent"
-                  : "Submit"}
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </div>
         </div>
       </form>
-    </div>
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: "green",
+            color: "white",
+          },
+        }}
+      />
+    </>
   );
 }
+
+export default ContactForm2;
