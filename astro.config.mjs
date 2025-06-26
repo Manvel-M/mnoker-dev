@@ -8,6 +8,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   output: "server",
   adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
+      configPath: "wrangler.jsonc",
+    },
     imageService: "cloudflare",
   }),
   integrations: [react()],
