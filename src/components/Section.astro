@@ -13,7 +13,7 @@ const { width = "max-w-7xl", title, subTitle, ...props } = Astro.props;
     <h2 class={`text-center ${!subTitle && "mb-10"}`}>{title}</h2>
     {
       subTitle && (
-        <p class="text-sm text-muted-foreground text-center mb-10">
+        <p class="text-sm text-muted-foreground text-center mb-10 mt-2">
           {subTitle}
         </p>
       )

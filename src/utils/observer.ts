@@ -1,9 +1,8 @@
 type InViewProps = {
   threshold?: number;
-  once?: boolean;
 };
 
-export function inView({ threshold = 0.2, once = true }: InViewProps) {
+export function observer({ threshold = 0.2 }: InViewProps) {
   const observer = new IntersectionObserver(
     (entries, obs) => {
       for (const entry of entries) {

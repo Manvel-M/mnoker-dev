@@ -69,7 +69,8 @@
   --animate-fade-up: fade-up 1s ease-out both;
   --animate-fade-in: fade-in 1s ease-out both;
   --animate-slide-right: slide-right 1s ease-out both;
-  --animate-slide-left: slide-left var(--duration) ease-out both;
+  --animate-slide-left: slide-left 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+    both;
 
   @keyframes float {
     0%,
@@ -84,7 +85,7 @@
   @keyframes slide-right {
     from {
       opacity: 0;
-      transform: translateX(-30px);
+      transform: translateX(-50%);
     }
     to {
       opacity: 1;
@@ -95,7 +96,7 @@
   @keyframes slide-left {
     from {
       opacity: 0;
-      transform: translateX(30px);
+      transform: translateX(50%);
     }
     to {
       opacity: 1;

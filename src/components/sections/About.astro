@@ -1,9 +1,13 @@
 ---
 import { Section } from "@/components";
+import { InView } from "@/components";
 ---
 
 <Section id="about" title="ABOUT ME">
-  <p class="tracking-wide leading-7 text-sm text-muted-foreground text-center">
+  <p
+    class="tracking-wide leading-7 text-sm text-muted-foreground text-center opacity-0"
+    data-inview="animate-fade-up"
+  >
     Hello! I'm Manvel, a passionate web developer and designer who believes in
     the power of beautiful, functional websites. I combine my expertise in UI/UX
     design, visual branding, and prototyping with robust development skills in
@@ -14,3 +18,5 @@ import { Section } from "@/components";
     exceptional together!
   </p>
 </Section>
+
+<InView />

@@ -1,4 +1,6 @@
 ---
+import { InView } from "@/components";
+
 type Props = {
   title: string;
   skills: {
@@ -11,18 +13,15 @@ const { skills, title } = Astro.props;
 ---
 
 <div
-  class="bg-surface text-surface-foreground p-5 rounded-lg border border-border shadow-xl max-sm:w-full max-md:w-[280px] md:flex-1 space-y-4 opacity-0"
-  data-inview="animate-slide-up"
+  class="bg-surface text-surface-foreground p-5 rounded-lg border border-border shadow-xl max-sm:w-full max-md:w-[280px] md:flex-1 space-y-4 overflow-hidden"
 >
   <h3>{title}</h3>
   <ul class="space-y-4">
     {
       skills.map((tool, idx) => (
         <li
-          class="flex gap-3 items-center opacity-0 duration-[2s]"
+          class={`flex gap-3 items-center opacity-0 `}
           data-inview="animate-slide-left"
-          data-delay={`[animation-delay:1500ms]`}
-          data-repeat="true"
         >
           <span class="bg-primary p-1 rounded">
             <tool.img
@@ -36,16 +35,4 @@ const { skills, title } = Astro.props;
     }
   </ul>
 </div>
-
-<script>
-  import { inView } from "@/utils/inView";
-  const observer = inView({
-    threshold: 0.5,
-  });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll<HTMLElement>("[data-inview]").forEach((el) => {
-      observer.observe(el);
-    });
-  });
-</script>
+<InView />
